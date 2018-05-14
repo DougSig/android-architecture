@@ -62,9 +62,7 @@ class TaskDetailViewModel(
         if (isDataLoading) {
             return
         }
-        val task = this.task.get().apply {
-            isCompleted = completed
-        }
+        val task = this.task.get()?.apply { isCompleted = completed } ?: return
         if (completed) {
             tasksRepository.completeTask(task)
             showSnackbarMessage(R.string.task_marked_complete)
@@ -97,9 +95,8 @@ class TaskDetailViewModel(
     }
 
     fun onRefresh() {
-        if (task.get() != null) {
-            start(task.get().id)
-        }
+        val task = task.get() ?: return
+        start(task.id)
     }
 
     private fun showSnackbarMessage(@StringRes message: Int) {

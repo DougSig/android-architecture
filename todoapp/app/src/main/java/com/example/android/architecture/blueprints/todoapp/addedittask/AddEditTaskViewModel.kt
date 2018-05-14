@@ -84,7 +84,9 @@ class AddEditTaskViewModel(
 
     // Called when clicking on fab.
     fun saveTask() {
-        val task = Task(title.get(), description.get())
+        val title = title.get() ?: return
+        val description = description.get() ?: return
+        val task = Task(title, description)
         if (task.isEmpty) {
             showSnackbarMessage(R.string.empty_task_message)
             return
@@ -93,7 +95,7 @@ class AddEditTaskViewModel(
             createTask(task)
         } else {
             taskId?.let {
-                updateTask(Task(title.get(), description.get(), it)
+                updateTask(Task(title, description, it)
                         .apply { isCompleted = taskCompleted })
             }
         }

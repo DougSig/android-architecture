@@ -89,6 +89,8 @@ class TasksFragment : Fragment() {
     }
 
     private fun showFilteringPopUpMenu() {
+        val context = context ?: return
+        val activity = activity ?: return
         PopupMenu(context, activity.findViewById<View>(R.id.menu_filter)).run {
             menuInflater.inflate(R.menu.filter_tasks, menu)
 
@@ -109,7 +111,7 @@ class TasksFragment : Fragment() {
     }
 
     private fun setupFab() {
-        activity.findViewById<FloatingActionButton>(R.id.fab_add_task).run {
+        activity?.findViewById<FloatingActionButton>(R.id.fab_add_task)?.run {
             setImageResource(R.drawable.ic_add)
             setOnClickListener {
                 viewDataBinding.viewmodel?.addNewTask()
@@ -128,6 +130,7 @@ class TasksFragment : Fragment() {
     }
 
     private fun setupRefreshLayout() {
+        val activity = activity ?: return
         viewDataBinding.refreshLayout.run {
             setColorSchemeColors(
                     ContextCompat.getColor(activity, R.color.colorPrimary),
