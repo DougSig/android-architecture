@@ -16,8 +16,8 @@
 package com.example.android.architecture.blueprints.todoapp.tasks
 
 import android.app.Application
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import android.content.Context
 import android.content.res.Resources
 import com.example.android.architecture.blueprints.todoapp.R
@@ -30,10 +30,11 @@ import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepo
 import com.example.android.architecture.blueprints.todoapp.util.ADD_EDIT_RESULT_OK
 import com.example.android.architecture.blueprints.todoapp.util.DELETE_RESULT_OK
 import com.example.android.architecture.blueprints.todoapp.util.EDIT_RESULT_OK
-import com.example.android.architecture.blueprints.todoapp.util.any
-import com.example.android.architecture.blueprints.todoapp.util.capture
-import com.example.android.architecture.blueprints.todoapp.util.mock
 import com.google.common.collect.Lists
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.capture
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Assert.assertFalse
@@ -45,8 +46,6 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 
 /**
@@ -94,7 +93,7 @@ class TasksViewModelTest {
         `when`(context.getString(successfully_deleted_task_message))
                 .thenReturn("DELETE_RESULT_OK")
 
-        `when`(context.resources).thenReturn(mock(Resources::class.java))
+        `when`(context.resources).thenReturn(mock<Resources>())
     }
 
     @Test fun loadAllTasksFromRepository_dataLoaded() {

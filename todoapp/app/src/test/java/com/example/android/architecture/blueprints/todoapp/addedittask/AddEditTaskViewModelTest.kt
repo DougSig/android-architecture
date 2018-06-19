@@ -17,14 +17,14 @@ package com.example.android.architecture.blueprints.todoapp.addedittask
 
 
 import android.app.Application
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
-import com.example.android.architecture.blueprints.todoapp.util.any
-import com.example.android.architecture.blueprints.todoapp.util.capture
-import com.example.android.architecture.blueprints.todoapp.util.eq
-import com.example.android.architecture.blueprints.todoapp.util.mock
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.capture
+import com.nhaarman.mockito_kotlin.eq
+import com.nhaarman.mockito_kotlin.mock
 import org.hamcrest.Matchers.`is`
 import org.junit.Assert.assertThat
 import org.junit.Before

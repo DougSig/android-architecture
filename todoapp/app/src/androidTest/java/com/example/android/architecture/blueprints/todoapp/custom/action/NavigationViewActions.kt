@@ -16,16 +16,16 @@
 package com.example.android.architecture.blueprints.todoapp.custom.action
 
 import android.content.res.Resources.NotFoundException
-import android.support.design.widget.NavigationView
-import android.support.test.espresso.PerformException
-import android.support.test.espresso.UiController
-import android.support.test.espresso.ViewAction
-import android.support.test.espresso.matcher.ViewMatchers
-import android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast
-import android.support.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
-import android.support.test.espresso.util.HumanReadables
-import android.support.v4.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import androidx.test.espresso.PerformException
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast
+import androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
+import androidx.test.espresso.util.HumanReadables
+import androidx.drawerlayout.widget.DrawerLayout
 import android.view.Menu
 import android.view.View
 import org.hamcrest.Matchers.allOf
@@ -58,7 +58,7 @@ object NavigationViewActions {
         return object : ViewAction {
 
             override fun perform(uiController: UiController, view: View) {
-                with((view as NavigationView).menu) {
+                with((view as com.google.android.material.navigation.NavigationView).menu) {
                     findItem(menuItemId) ?: throw PerformException.Builder()
                             .withActionDescription(description)
                             .withViewDescription(HumanReadables.describe(view))
@@ -94,7 +94,7 @@ object NavigationViewActions {
             override fun getDescription() = "Click on menu item with id"
 
             override fun getConstraints() = allOf<View>(
-                    isAssignableFrom(NavigationView::class.java),
+                    isAssignableFrom(com.google.android.material.navigation.NavigationView::class.java),
                     withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
                     isDisplayingAtLeast(90))
         }

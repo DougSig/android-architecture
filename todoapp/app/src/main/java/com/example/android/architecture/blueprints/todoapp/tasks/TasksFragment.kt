@@ -17,11 +17,11 @@
 package com.example.android.architecture.blueprints.todoapp.tasks
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.PopupMenu
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.PopupMenu
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
@@ -38,7 +38,7 @@ import java.util.ArrayList
 /**
  * Display a grid of [Task]s. User can choose to view all, active or completed tasks.
  */
-class TasksFragment : Fragment() {
+class TasksFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var viewDataBinding: TasksFragBinding
     private lateinit var listAdapter: TasksAdapter
@@ -81,7 +81,7 @@ class TasksFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewDataBinding.viewmodel?.let {
-            view?.setupSnackbar(this, it.snackbarMessage, Snackbar.LENGTH_LONG)
+            view?.setupSnackbar(this, it.snackbarMessage, com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
         }
         setupFab()
         setupListAdapter()
@@ -111,7 +111,7 @@ class TasksFragment : Fragment() {
     }
 
     private fun setupFab() {
-        activity?.findViewById<FloatingActionButton>(R.id.fab_add_task)?.run {
+        activity?.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab_add_task)?.run {
             setImageResource(R.drawable.ic_add)
             setOnClickListener {
                 viewDataBinding.viewmodel?.addNewTask()

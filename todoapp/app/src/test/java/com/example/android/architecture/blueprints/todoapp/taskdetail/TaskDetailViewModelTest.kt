@@ -17,15 +17,15 @@ package com.example.android.architecture.blueprints.todoapp.taskdetail
 
 
 import android.app.Application
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import android.content.Context
 import android.content.res.Resources
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
-import com.example.android.architecture.blueprints.todoapp.util.capture
-import com.example.android.architecture.blueprints.todoapp.util.eq
+import com.nhaarman.mockito_kotlin.capture
+import com.nhaarman.mockito_kotlin.eq
 import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
@@ -85,8 +85,8 @@ class TaskDetailViewModelTest {
         setupViewModelRepositoryCallback()
 
         // Then verify that the view was notified
-        assertEquals(taskDetailViewModel.task.get().title, task.title)
-        assertEquals(taskDetailViewModel.task.get().description, task.description)
+        assertEquals(taskDetailViewModel.task.get()?.title, task.title)
+        assertEquals(taskDetailViewModel.task.get()?.description, task.description)
     }
 
     @Test fun deleteTask() {

@@ -1,12 +1,13 @@
 # Some methods are only called from tests, so make sure the shrinker keeps them.
 -keep class com.example.android.architecture.blueprints.** { *; }
 
--keep class android.support.v4.widget.DrawerLayout { *; }
--keep class android.support.test.espresso.IdlingResource { *; }
--keep class android.support.test.espresso.IdlingRegistry { *; }
+-keep class androidx.drawerlayout.widget.DrawerLayout { *; }
+-keep class androidx.test.espresso.IdlingResource { *; }
+-keep class androidx.test.espresso.IdlingRegistry { *; }
 -keep class com.google.common.base.Preconditions { *; }
--keep class android.databinding.** { *; }
--keep class android.arch.** { *; }
+-keep class androidx.databinding.** { *; }
+-keep class androidx.arch.** { *; }
+-keep class androidx.room.** { *; }
 
 # For Guava:
 -dontwarn javax.annotation.**
@@ -21,8 +22,7 @@
 -dontnote junit.framework.**
 -dontnote junit.runner.**
 
--dontwarn android.test.**
--dontwarn android.support.test.**
+-dontwarn androidx.test.**
 -dontwarn org.junit.**
 -dontwarn org.hamcrest.**
 -dontwarn com.squareup.javawriter.JavaWriter

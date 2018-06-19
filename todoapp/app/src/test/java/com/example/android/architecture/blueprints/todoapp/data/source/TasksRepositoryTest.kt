@@ -16,10 +16,10 @@
 package com.example.android.architecture.blueprints.todoapp.data.source
 
 import com.example.android.architecture.blueprints.todoapp.data.Task
-import com.example.android.architecture.blueprints.todoapp.util.any
-import com.example.android.architecture.blueprints.todoapp.util.capture
-import com.example.android.architecture.blueprints.todoapp.util.eq
 import com.google.common.collect.Lists
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.capture
+import com.nhaarman.mockito_kotlin.eq
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.After
 import org.junit.Assert.assertNotNull
