@@ -3,11 +3,12 @@ machine:
     version: oraclejdk8
   environment:
     GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+    ANDROID_HOME: /usr/local/android-sdk-linux
 
 dependencies:
   pre:
     - sudo pip install -U crcmod
-    - sdkmanager --licenses
+    - $ANDROID_HOME/tools/bin/sdkmanager --licenses
     - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-28,extra-android-m2repository,extra-google-m2repository"
 
   post:
